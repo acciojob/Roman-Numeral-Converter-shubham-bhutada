@@ -10,13 +10,24 @@ function convertToRoman(num) {
     };
 
   //your code here
+	let romanNumeral = '';
+
+  // Sort the keys in descending order to handle larger values first
+  const sortedKeys = Object.keys(romanSymbols).sort((a, b) => b - a);
+
+  for (const value of sortedKeys) {
+    while (num >= value) {
+      romanNumeral += romanSymbols[value];
+      num -= value;
+    }
+  }
+
+  return romanNumeral;
 
 }
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
 
 // console.log(convertToRoman(36));
-
-
 
 
 // do not edit below this line
